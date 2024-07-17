@@ -18,7 +18,6 @@ const StateCity = () => {
         };
       });
       setStates(stateOptions);
-      
     }, [stateList]);
     
 
