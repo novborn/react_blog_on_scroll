@@ -12,19 +12,24 @@ const PageLayouts = () => {
   return (
 
    <>
+    <Router>
    <div className="container">
       <Header/>
-        <Router>
+       
           <Routes>
             <Route path="/blog" element={<BlogView />} />
             <Route path="/state-city" element={<CityStateView />} />
           </Routes>
-        </Router>
+        
       <Footer/>
     </div>
+    </Router>
    </>
 
   )
 }
 
 export default PageLayouts
+
+
+

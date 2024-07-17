@@ -6,8 +6,13 @@ import BodyRight from '../components/blog/BodyRight.jsx'
 const BlogView = () => {
   return (
     <>
-      <BodyLeft/>
-      <BodyRight/>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-9"><BodyLeft/></div>  
+        <div className="col-md-3"><BodyRight/></div>
+      </div>  
+    </div>
+      
     </>
   );
 };
