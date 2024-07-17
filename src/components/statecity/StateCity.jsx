@@ -20,14 +20,31 @@ const StateCity = () => {
     }, [stateList]);
     
 
-    const getCityEventHandler = (selectedOption) => {
-      setSelectedState(selectedOption.value)
-      console.log(selectedOption)
-
+    const getStateEventHandler = (selectedStateOption) => {
+      
+  
+      if(selectedStateOption.value){
+        const selectedCityList = stateList[selectedStateOption.value];
+        const cityListOptionValue = selectedCityList.map(city =>{
+          return {
+            value:city,
+            label:city
+          }
+        })
+        setSelectedState(selectedStateOption.value)
+        setCities(cityListOptionValue);
+      }
     };
+
+    const getCityEventHandler = (selectedCityOption) => {
+        //alert(selectedCityOption.value);
+        setSelectedCity(selectedCityOption);
+    }
 
   return (
     <>
+
+    {selectedState}
       <div className="card">
         <div className="card-body">
           <div className="row">
@@ -38,7 +55,7 @@ const StateCity = () => {
                 options={states}
                 isMulti={false}
                 value={selectedState}
-                onChange={getCityEventHandler}
+                onChange={getStateEventHandler}
                 placeholder="Search State..."
               />
             </div>
@@ -46,6 +63,10 @@ const StateCity = () => {
               <Select
                 id="CityDropdown"
                 isClearable={false}
+                options={cities}
+                value={selectedCity}
+                isMulti={false}
+                onChange={getCityEventHandler}
                 placeholder="Search City..."
               />
             </div>

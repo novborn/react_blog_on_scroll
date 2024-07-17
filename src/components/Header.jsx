@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const handleMouseEnter = () => {
     setIsOpen(true);
   };
@@ -16,8 +16,6 @@ const Header = () => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
-
-
 
   return (
    <> 
@@ -76,7 +74,7 @@ const Header = () => {
             </li>
 
         <li className="nav-item">
-        <NavLink
+          <NavLink
             className="nav-link"
             to="/blog"
             tabIndex={-1}
