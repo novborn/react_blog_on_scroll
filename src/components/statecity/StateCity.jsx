@@ -4,24 +4,27 @@ import Select from "react-select";
 
 const StateCity = () => {
   const [states, setStates] = useState([]);
-  const [cities, setCities] = useState([]);
   const [selectedState, setSelectedState] = useState(null);
+  const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState(null);
 
-
-
   useEffect(() => {
-  
+
       const stateOptions = Object.keys(stateList).map(state => {
-        console.log(state); // Log each state name
         return {
           value: state,
           label: state
         };
       });
+      setStates(stateOptions);
     }, [stateList]);
     
-    
+
+    const getCityEventHandler = (selectedOption) => {
+      setSelectedState(selectedOption.value)
+      console.log(selectedOption)
+
+    };
 
   return (
     <>
@@ -32,6 +35,10 @@ const StateCity = () => {
               <Select
                 id="stateDropdown"
                 isClearable={false}
+                options={states}
+                isMulti={false}
+                value={selectedState}
+                onChange={getCityEventHandler}
                 placeholder="Search State..."
               />
             </div>
