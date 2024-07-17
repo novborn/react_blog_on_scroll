@@ -5,6 +5,7 @@ import Select from "react-select";
 const StateCity = () => {
   const [states, setStates] = useState([]);
   const [selectedState, setSelectedState] = useState(null);
+  const [selectedStateValue, setSelectedStateValue] = useState("");
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState(null);
 
@@ -17,12 +18,15 @@ const StateCity = () => {
         };
       });
       setStates(stateOptions);
+      
     }, [stateList]);
     
 
     const getStateEventHandler = (selectedStateOption) => {
-      
-  
+
+      setSelectedState(selectedStateOption)
+      setSelectedStateValue(selectedStateOption.value)
+    
       if(selectedStateOption.value){
         const selectedCityList = stateList[selectedStateOption.value];
         const cityListOptionValue = selectedCityList.map(city =>{
@@ -31,9 +35,13 @@ const StateCity = () => {
             label:city
           }
         })
-        setSelectedState(selectedStateOption.value)
+       
         setCities(cityListOptionValue);
+        setSelectedCity([]);
+      }else{
+        setSelectedState([])
       }
+     
     };
 
     const getCityEventHandler = (selectedCityOption) => {
@@ -44,20 +52,21 @@ const StateCity = () => {
   return (
     <>
 
-    {selectedState}
+  
       <div className="card">
         <div className="card-body">
           <div className="row">
             <div className="col-md-6">
               <Select
-                id="stateDropdown"
-                isClearable={false}
-                options={states}
-                isMulti={false}
-                value={selectedState}
-                onChange={getStateEventHandler}
-                placeholder="Search State..."
-              />
+              id="stateDropdown"
+              isClearable={false}
+              options={states}
+              isMulti={false}
+              onChange={getStateEventHandler}
+              value={selectedState}
+              placeholder="Search State..."
+            />
+
             </div>
             <div className="col-md-6">
               <Select
@@ -67,7 +76,7 @@ const StateCity = () => {
                 value={selectedCity}
                 isMulti={false}
                 onChange={getCityEventHandler}
-                placeholder="Search City..."
+                placeholder={`Search ${selectedStateValue} City...`}
               />
             </div>
           </div>
