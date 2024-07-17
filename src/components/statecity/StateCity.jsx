@@ -1,8 +1,10 @@
+
 import React, {useState, useEffect} from "react";
 import stateList from "./../../json/statecity.json";
 import Select from "react-select";
 
 const StateCity = () => {
+  
   const [states, setStates] = useState([]);
   const [selectedState, setSelectedState] = useState(null);
   const [selectedStateValue, setSelectedStateValue] = useState("");
@@ -18,9 +20,9 @@ const StateCity = () => {
         };
       });
       setStates(stateOptions);
+
     }, [stateList]);
     
-
     const getStateEventHandler = (selectedStateOption) => {
 
       setSelectedState(selectedStateOption)
@@ -50,8 +52,6 @@ const StateCity = () => {
 
   return (
     <>
-
-  
       <div className="card">
         <div className="card-body">
           <div className="row">
