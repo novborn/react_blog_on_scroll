@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 import Loader from "../Loader";
@@ -55,8 +56,6 @@ const BlogPage = () => {
     const words = content.split(" ");
     return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : content;
   };
-
-
 
   return (
     <div className="container mt-4">
