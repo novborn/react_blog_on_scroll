@@ -69,7 +69,7 @@ const BlogPage = () => {
               <div className="row no-gutters">
                 <div className="col-md-12">
                   <div className="card-body">
-                    <h5 iftext--
+                    <h5 className="iftext"
                       dangerouslySetInnerHTML={{ __html: blog.title.rendered }}
                     ></h5>
                     <p
@@ -94,7 +94,7 @@ const BlogPage = () => {
               <div className="row no-gutters">
                 <div className="col-md-12">
                   <div className="card-body">
-                    <h5 elsetext--
+                    <h5 className="elsetext"
                       dangerouslySetInnerHTML={{ __html: blog.title.rendered }}
                     ></h5>
                     <p
