@@ -15,7 +15,7 @@ const BlogPage = () => {
 
     setIsLoading(true);
     try {
-      const url = `https://lingayasvidyapeeth.edu.in/wp-json/wp/v2/posts?page=${page}&per_page=3`;
+      const url = `https://imaginxp.com/wp-json/wp/v2/posts?page=${page}&per_page=3`;
       const res = await axios.get(url);
       if (res && res.data) {
         setBlogs((prevBlogs) => [...prevBlogs, ...res.data]);
